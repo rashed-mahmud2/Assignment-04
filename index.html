@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Rashed Mahmud">
+    <meta name="description"
+        content="Discover easy step-by-step cooking guides at Thatix. From traditional Bangladeshi meals to modern dishes, learn how to make delicious recipes with love and fresh ingredients.">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thatix – Learn How to Make Delicious Recipes Step by Step</title>
+
+
+    <!-- fontawosome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="./src/output.css">
+
+    <!-- link to JavaScript  -->
+    <script defer src="./script.js"></script>
+</head>
+
+<body>
+
+    <header class="container">
+        <nav
+            class="container flex justify-center items-center p-4 bg-[#f0f8ff4d] backdrop-blur-2xl fixed top-0 w-full z-20">
+            <img src="images/logo.png" alt="logo of Thatix" width="120">
+        </nav>
+
+        <div
+            class="mt-[5rem] hero-section bg-[url('../images/page-title.jpg')] bg-gray-500 bg-blend-soft-light h-80 bg-no-repeat bg-cover bg-center flex flex-col items-center justify-center">
+            <h1>Search Your <br> Favourite Racepe</h1>
+            <p class="text-center mt-4 text-white">A handful of simple ingradients typify the fresh, vibrant <br>
+                flavours of Greek
+                cooking</p>
+        </div>
+
+        <div class="p-5 flex justify-center items-center w-full">
+            <form class="relative w-full text-center">
+                <input id="search-text" class="w-2/3 border-1 border-gray-400 rounded-md px-5 py-2 outline-0"
+                    type="text" placeholder="search..">
+                <button id="search-btn"
+                    class="relative bg-amber-500 text-white py-2 px-3 rounded-r-md right-[2.8rem] top-0"
+                    type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </header>
+
+    <main class="container px-[1.5rem] md:px-[4rem] xl:px-[8rem] mb-10">
+        <h2 class="text-center text-slate-600 my-6">Latest Racipes</h2>
+        <div class="card-container grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="card-container">
+
+        </div>
+    </main>
+
+    <!-- loader -->
+    <div id="loader" class="w-full h-full flex justify-center items-center fixed inset-0 ">
+        <div id="spinner"
+            class="h-16 w-16 border-4 border-white border-t-4 rounded-full border-t-blue-600 animate-spin duration-1000 relative right-0 top-[10rem]">
+        </div>
+    </div>
+
+    <!-- back to top -->
+    <div id="scroller" class="fixed bottom-15 right-15 bg-amber-500 p-3 rounded-lg shadow-2xl">
+        <a href="#"><i class="fa-solid fa-2x text-white fa-arrow-up"></i></a>
+    </div>
+
+    <!-- this is just template. It won't show in the DOM -->
+    <template id="foodTemplate">
+        <div
+            class="card shadow-lg shadow-gray-300 transition-all duration-300 hover:translate-y-[-0.5rem] rounded-2xl hover:shadow-2xl">
+            <div class="card-header">
+                <img id="card-img" class="rounded-t-2xl h-[200px] w-full object-cover" src="images/card.jpg"
+                    alt="card-iamge">
+            </div>
+            <div class="card-content p-3">
+                <h3 id="card-title" class="font-bold">MealNmae</h3>
+                <p id="card-desc" class="text-sm my-3">how
+                    to make this meal Lorem
+                    ipsum
+                    dolor sit amet
+                    consectetur adipisicing
+                    elit.
+                    Aperiam modi
+                    repellendus nobis placeat soluta nihil dolorem tempore sequi ducimus dolor.</p>
+                <div id="view-details" class="text-right">
+                    <button id="closeModal"
+                        class="bg-amber-400 text-white py-2 px-4 inline-block rounded-md hover:bg-amber-600 active:bg-red-500">View
+                        Details</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Overlay -->
+    <div id="mealModal" class="fixed inset-0 bg-[rgba(0,0,0,0.5)] items-center justify-center z-50 hidden">
+        <!-- Modal Box -->
+        <div class="bg-white rounded-lg shadow-xl w-[80%]  lg:w-[50%] relative p-2">
+            <img id="modalImg" class="w-full h-[300px] object-cover mb-4 rounded-t-lg shadow-lg" />
+            <div class="p-4">
+                <h2 id="modalTitle" class="text-xl font-bold mb-2"></h2>
+                <p id="modalInstructions" class="text-gray-700 text-sm leading-relaxed py-4"></p>
+                <div id="view-details" class="text-right">
+                    <button id="closeModal"
+                        class="bg-amber-400 text-white py-2 px-4 inline-block rounded-md hover:bg-amber-600 active:bg-red-500">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="container bg-slate-700">
+        <p class="py-5 px-[1.5rem] md:px-[4rem] xl:px-[8rem] text-white">Copy &copy; 2023 - All right reserved</p>
+    </footer>
+
+</body>
+
+</html>
